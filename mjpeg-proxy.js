@@ -144,7 +144,9 @@ var MjpegProxy = exports.MjpegProxy = function(mjpegUrl) {
 
       if (self.audienceResponses.length == 0) {
         self.mjpegRequest = null;
-        self.globalMjpegResponse.destroy();
+        if(self.globalMjpegResponse) {
+          self.globalMjpegResponse.destroy();
+        }
       }
     });
   }
